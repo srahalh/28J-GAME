@@ -1,0 +1,54 @@
+# Sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs y editores
+.vscode/github-accounts.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# Dependencias (si en el futuro usas npm/yarn)
+node_modules/
+bower_components/
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.tmp
+
+# Archivos de configuración personal
+.env
+.env.local
+.env.*.local
+config.local.js
+
+# Archivos de distribución/build (si en el futuro los generas)
+dist/
+build/
+*.min.js
+*.min.css
+
+# Cobertura de tests
+coverage/
+.nyc_output/
+
+# Archivos personales
+notes.txt
+TODO.txt
