@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>28J - Derriba al comandante galáctico</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -25,7 +25,7 @@
             <div id="start-screen" class="screen active">
                 <h1>Derriba al comandante galáctico</h1>
                 <p>El país necesita que destruyas el último Horrocrux</p>
-                <p>Usa las flechas para moverte y ESPACIO para golpear.</p>
+                <p>Usa las flechas o el D-pad para moverte y ESPACIO o el botón para golpear.</p>
                 <button id="start-btn">Comenzar</button>
             </div>
             <div id="level-screen" class="screen hidden">
@@ -81,6 +81,28 @@
             </div>
         </div>
     </div>
+    <div id="touch-controls">
+        <div class="touch-dpad">
+            <button class="touch-btn dpad-up" data-action="MOVE_UP" aria-label="Mover arriba">&#9650;</button>
+            <div class="dpad-middle-row">
+                <button class="touch-btn dpad-left" data-action="MOVE_LEFT" aria-label="Mover izquierda">&#9664;</button>
+                <div class="dpad-center"></div>
+                <button class="touch-btn dpad-right" data-action="MOVE_RIGHT" aria-label="Mover derecha">&#9654;</button>
+            </div>
+            <button class="touch-btn dpad-down" data-action="MOVE_DOWN" aria-label="Mover abajo">&#9660;</button>
+        </div>
+        <div class="touch-action">
+            <button class="touch-btn action-attack" data-action="ATTACK" aria-label="Atacar">&#9876;</button>
+        </div>
+    </div>
+    <footer id="site-footer">
+        <p>Creado por <a href="https://saidrahal.com" target="_blank" rel="noopener">Said Rahal</a></p>
+        <div class="footer-links">
+            <a href="https://github.com/srahalh/28J-GAME" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://x.com/srahalh" target="_blank" rel="noopener">𝕏</a>
+            <a href="https://linkedin.com/in/saidrahal" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </footer>
     <script type="module" src="js/main.js"></script>
 </body>
 
