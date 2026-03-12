@@ -20,13 +20,14 @@ body {
 
 #game-container {
     position: relative;
-    width: 800px;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 800px;
     aspect-ratio: 4 / 3;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     background: linear-gradient(180deg, #87CEEB 0%, #E0F7FA 100%);
     border: 5px solid #444;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 canvas {
@@ -100,6 +101,7 @@ canvas {
     /* Enable clicks */
     text-align: center;
     backdrop-filter: blur(2px);
+    padding: 10px;
 }
 
 .screen h1 {
@@ -117,6 +119,7 @@ canvas {
     color: #ddd;
 }
 
+/* Game UI buttons (start, restart, share, etc.) */
 button {
     padding: 10px 30px;
     font-size: 20px;
@@ -151,13 +154,14 @@ button:hover {
     display: none;
     justify-content: space-between;
     align-items: center;
-    width: 800px;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 800px;
     padding: 15px 20px;
     box-sizing: border-box;
     user-select: none;
     -webkit-user-select: none;
     touch-action: none;
+    flex-shrink: 0;
 }
 
 #touch-controls.active {
@@ -182,6 +186,7 @@ button:hover {
     height: 56px;
 }
 
+/* Reset global button styles for touch controls */
 .touch-btn {
     width: 60px;
     height: 60px;
@@ -195,8 +200,15 @@ button:hover {
     align-items: center;
     padding: 0;
     box-shadow: none;
+    text-transform: none;
+    font-weight: normal;
     -webkit-tap-highlight-color: transparent;
     touch-action: none;
+}
+
+.touch-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: none;
 }
 
 .touch-btn:active,
@@ -215,10 +227,16 @@ button:hover {
     font-size: 32px;
 }
 
+.action-attack:hover {
+    background: rgba(217, 83, 79, 0.4);
+    transform: none;
+}
+
 .action-attack:active,
 .action-attack.pressed {
     background: rgba(217, 83, 79, 0.7);
     border-color: rgba(217, 83, 79, 1);
+    transform: scale(0.95);
 }
 
 /* ============================================
@@ -226,8 +244,8 @@ button:hover {
    ============================================ */
 
 #site-footer {
-    width: 800px;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 800px;
     padding: 15px 20px;
     text-align: center;
     font-size: 13px;
@@ -253,7 +271,7 @@ button:hover {
 }
 
 /* ============================================
-   RESPONSIVE
+   RESPONSIVE - PORTRAIT
    ============================================ */
 
 @media (max-width: 600px) {
@@ -272,11 +290,12 @@ button:hover {
         font-size: 10px;
     }
     .screen h1 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
     .screen p {
-        font-size: 14px;
-        margin-bottom: 15px;
+        font-size: 13px;
+        margin-bottom: 12px;
     }
     button {
         padding: 8px 20px;
@@ -302,5 +321,91 @@ button:hover {
     #site-footer {
         font-size: 11px;
         padding: 10px 15px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - LANDSCAPE MOBILE
+   ============================================ */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        justify-content: flex-start;
+    }
+
+    #game-container {
+        max-width: none;
+        width: auto;
+        height: 100vh;
+        aspect-ratio: 4 / 3;
+    }
+
+    /* In landscape, overlay controls on the game */
+    #touch-controls {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        padding: 10px 20px;
+        z-index: 100;
+        pointer-events: none;
+    }
+
+    #touch-controls .touch-btn {
+        pointer-events: auto;
+    }
+
+    .touch-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+        opacity: 0.7;
+    }
+
+    .dpad-center {
+        width: 44px;
+        height: 44px;
+    }
+
+    .action-attack {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+        opacity: 0.7;
+    }
+
+    #site-footer {
+        display: none;
+    }
+
+    #hud {
+        font-size: 10px;
+        padding: 3px 5px;
+    }
+
+    .stat-box {
+        padding: 2px 5px;
+    }
+
+    #health-bar-bg {
+        width: 80px;
+        height: 12px;
+    }
+
+    .screen h1 {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+
+    .screen p {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    button {
+        padding: 6px 16px;
+        font-size: 14px;
     }
 }
